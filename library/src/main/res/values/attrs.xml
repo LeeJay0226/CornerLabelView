@@ -1,0 +1,13 @@
+<resources>
+    <declare-styleable name="CornerLabelView">
+        <attr name="clv_degrees" format="float" />
+        <attr name="clv_distance" format="dimension" />
+        <attr name="clv_thickness" format="dimension" />
+        <attr name="clv_text" format="string|reference" />
+        <attr name="clv_textColor" format="color|reference" />
+        <attr name="clv_gravity" format="enum">
+            <enum name="leftTop" value="0" />
+            <enum name="rightTop" value="1" />
+        </attr>
+    </declare-styleable>
+</resources>
