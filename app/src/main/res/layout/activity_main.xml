@@ -25,7 +25,7 @@
         android:src="@drawable/image"
         android:scaleType="centerCrop" />
 
-    <com.github.cornerlabelview.CornerLabelView
+    <com.github.leejay.cornerlabelview.CornerLabelView
         android:id="@+id/label1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -38,7 +38,7 @@
         app:clv_distance="22dp"
         app:clv_gravity="rightTop" />
 
-    <com.github.cornerlabelview.CornerLabelView
+    <com.github.leejay.cornerlabelview.CornerLabelView
         android:id="@+id/label2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -52,7 +52,7 @@
         app:clv_distance="22dp"
         app:clv_gravity="leftTop" />
 
-    <com.github.cornerlabelview.CornerLabelView2
+    <com.github.leejay.cornerlabelview.CornerLabelView2
         android:id="@+id/label3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -65,7 +65,7 @@
         app:clv_distance="18dp"
         app:clv_gravity="rightTop" />
 
-    <com.github.cornerlabelview.CornerLabelView2
+    <com.github.leejay.cornerlabelview.CornerLabelView2
         android:id="@+id/label4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -1,4 +1,4 @@
-package com.github.cornerlabelview;
+package com.github.leejay.cornerlabelview;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -10,6 +10,7 @@ import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.support.annotation.IntDef;
+import android.support.annotation.NonNull;
 import android.text.Layout;
 import android.text.StaticLayout;
 import android.text.TextPaint;
@@ -27,27 +28,36 @@ import java.lang.annotation.RetentionPolicy;
  */
 public class CornerLabelView extends View {
 
+    public static final int LEFT_TOP = 0;
+
+    public static final int RIGHT_TOP = 1;
+
     private float mDegrees = 30f;
+
     private int mDistance = 20;
+
     private int mThickness = 20;
+
     private int mPivotH;
+
     private String mText;
-    private TextPaint mTextPaint;
-    private Paint mPaint;
-    private Rect mMaxTextRect;
-    private RectF mRectF;
+
+    private final TextPaint mTextPaint;
+
+    private final Paint mPaint;
+
+    private final Rect mMaxTextRect;
+
+    private final RectF mRectF;
+
     private float mTextX;
+
     private float mTextY;
+
     private StaticLayout mStaticLayout;
 
-    @IntDef({LEFT_TOP, RIGHT_TOP})
-    @Retention(RetentionPolicy.SOURCE)
-    public @interface Gravity {
-    }
-
     private int mGravity;
-    public static final int LEFT_TOP = 0;
-    public static final int RIGHT_TOP = 1;
+
 
     public CornerLabelView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
@@ -87,7 +97,7 @@ public class CornerLabelView extends View {
     }
 
     @Override
-    public void draw(Canvas canvas) {
+    public void draw(@NonNull Canvas canvas) {
         canvas.saveLayerAlpha(mRectF, 255, Canvas.HAS_ALPHA_LAYER_SAVE_FLAG);
         if (mGravity == LEFT_TOP) {
             canvas.rotate(-mDegrees, 0, mPivotH);
@@ -156,6 +166,10 @@ public class CornerLabelView extends View {
         }
     }
 
+    public String getText() {
+        return mText;
+    }
+
     public void setText(String text) {
         if (!TextUtils.equals(mText, text)) {
             mText = text;
@@ -164,8 +178,8 @@ public class CornerLabelView extends View {
         }
     }
 
-    public String getText() {
-        return mText;
+    public int getGravity() {
+        return mGravity;
     }
 
     public void setGravity(@Gravity int gravity) {
@@ -176,8 +190,8 @@ public class CornerLabelView extends View {
         }
     }
 
-    public int getGravity() {
-        return mGravity;
+    public float getDegrees() {
+        return mDegrees;
     }
 
     public void setDegrees(float degrees) {
@@ -188,8 +202,8 @@ public class CornerLabelView extends View {
         }
     }
 
-    public float getDegrees() {
-        return mDegrees;
+    public int getDistance() {
+        return mDistance;
     }
 
     public void setDistance(int distance) {
@@ -200,8 +214,8 @@ public class CornerLabelView extends View {
         }
     }
 
-    public int getDistance() {
-        return mDistance;
+    public int getThickness() {
+        return mThickness;
     }
 
     public void setThickness(int thickness) {
@@ -212,7 +226,8 @@ public class CornerLabelView extends View {
         }
     }
 
-    public int getThickness() {
-        return mThickness;
+    @IntDef({LEFT_TOP, RIGHT_TOP})
+    @Retention(RetentionPolicy.SOURCE)
+    public @interface Gravity {
     }
 }
